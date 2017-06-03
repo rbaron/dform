@@ -1,6 +1,6 @@
 {
   "name": "dform",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Schema-based, dynamic forms",
   "url": "https://github.com/rbaron/dform",
   "scripts": {
