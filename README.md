@@ -13,7 +13,7 @@ Schema-based dynamic forms.
 In the following example, there are three inputs defined in the `schema`. Inputs `input1` and `input2` will be rendered if `state.showForm` is `true`, whereas `input3` will be rendered if, in addition, `input1` is `true` _and_ `input2` is not empty:
 
 ```javascript
-import { renderForm } from './src/dform'
+import { renderForm } from 'dform'
 
 const schema = {
     cond: {
