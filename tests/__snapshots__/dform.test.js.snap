@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render renders all fields 1`] = `
+Array [
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_111\\"}>",
+  "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_112\\"}>",
+  "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_211\\"}>",
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_212\\"}>",
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_311\\"}>",
+  "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_221\\"}>",
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_222\\"}>",
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_321\\"}>",
+]
+`;
+
+exports[`render renders node 11 and node 22 fields 1`] = `
+Array [
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_111\\"}>",
+  "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_112\\"}>",
+  "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_221\\"}>",
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_222\\"}>",
+]
+`;
+
+exports[`render renders node 11 and node 22 fields 2`] = `
+Array [
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_111\\"}>",
+  "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_112\\"}>",
+  "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_221\\"}>",
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_222\\"}>",
+]
+`;
+
+exports[`render renders node 11, node 22 and node 32 fields 1`] = `
+Array [
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_111\\"}>",
+  "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_112\\"}>",
+  "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_221\\"}>",
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_222\\"}>",
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_321\\"}>",
+]
+`;

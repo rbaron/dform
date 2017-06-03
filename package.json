@@ -1,0 +1,17 @@
+{
+  "name": "dform",
+  "version": "1.0.0",
+  "description": "Dynamic forms made easy",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "rbaron",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^20.0.4"
+  }
+}
