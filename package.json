@@ -2,7 +2,7 @@
   "name": "dform",
   "version": "1.0.2",
   "description": "Schema-based, dynamic forms",
-  "url": "https://github.com/rbaron/dform",
+  "homepage": "https://github.com/rbaron/dform",
   "scripts": {
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile",
