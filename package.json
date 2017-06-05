@@ -8,6 +8,10 @@
     "prepublish": "npm run compile",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rbaron/dform"
+  },
   "author": "rbaron",
   "license": "MIT",
   "main": "lib/dform.js",
