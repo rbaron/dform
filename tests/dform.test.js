@@ -1,4 +1,4 @@
-import { renderForm } from '../src/dform'
+import { activeFields, renderForm } from '../src/dform'
 
 const schema = {
   // height 1 node 1
@@ -91,7 +91,7 @@ describe('render', () => {
     const rendered = renderForm(state, schema, inputFactories);
     expect(rendered).toHaveLength(8)
     expect(rendered).toMatchSnapshot()
-  });
+  })
 
   it('renders node 11 and node 22 fields', () => {
     const state = {
@@ -102,7 +102,7 @@ describe('render', () => {
     const rendered = renderForm(state, schema, inputFactories);
     expect(rendered).toHaveLength(4)
     expect(rendered).toMatchSnapshot()
-  });
+  })
 
   it('renders node 11, node 22 and node 32 fields', () => {
     const state = {
@@ -114,7 +114,7 @@ describe('render', () => {
     const rendered = renderForm(state, schema, inputFactories);
     expect(rendered).toHaveLength(5)
     expect(rendered).toMatchSnapshot()
-  });
+  })
 
   it('renders node 11 and node 22 fields', () => {
     const state = {
@@ -126,5 +126,49 @@ describe('render', () => {
     const rendered = renderForm(state, schema, inputFactories);
     expect(rendered).toHaveLength(4)
     expect(rendered).toMatchSnapshot()
-  });
+  })
+})
+
+describe('activeKeys', () => {
+  it('returns all fields', () => {
+    const state = {
+      field_111: 'Some content',
+      field_112: true,
+      field_221: true,
+    }
+
+    const fields = activeFields(state, schema)
+    const fieldSet = new Set(fields.map(f => f.id))
+
+    const expected = new Set([
+      'field_111',
+      'field_112',
+      'field_211',
+      'field_212',
+      'field_311',
+      'field_221',
+      'field_222',
+      'field_321',
+    ])
+    expect(fieldSet).toEqual(expected)
+  })
+
+  it.only('returns expected fields', () => {
+    const state = {
+      field_111: 'Some content',
+      field_112: false,
+      field_221: true,
+    }
+    const fields = activeFields(state, schema)
+    const fieldSet = new Set(fields.map(f => f.id))
+
+    const expected = new Set([
+      'field_111',
+      'field_112',
+      'field_221',
+      'field_222',
+      'field_321',
+    ])
+    expect(fieldSet).toEqual(expected)
+  })
 })

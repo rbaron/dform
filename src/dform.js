@@ -19,20 +19,22 @@ const shouldRender = (state, cond) => {
   }
 }
 
-const renderInput = (field, inputFactories) => {
+const renderInput = (field, inputFactories, missingFactoryHandler) => {
   if (field.type in inputFactories) {
     return inputFactories[field.type](field);
+  } else if (missingFactoryHandler) {
+    return missingFactoryHandler(field);
   } else {
     throw new Error(`No input factory found for ${field.type}`);
   }
 }
 
-const renderForm = (state, schema, inputFactories) => {
+const renderForm = (state, schema, inputFactories, missingFactoryHandler = null) => {
   if (shouldRender(state, schema.cond)) {
-    const fields = schema.fields.map(f => renderInput(f, inputFactories))
+    const fields = schema.fields.map(f => renderInput(f, inputFactories, missingFactoryHandler))
 
     const children = schema.children ? schema.children.reduce((acc, c) =>
-      [ ...acc, ...renderForm(state, c, inputFactories)], []) : []
+      [ ...acc, ...renderForm(state, c, inputFactories, missingFactoryHandler)], []) : []
 
     return [
       ...fields,
@@ -43,4 +45,11 @@ const renderForm = (state, schema, inputFactories) => {
   }
 }
 
-export { renderForm }
+const activeFields = (state, schema) => {
+  const inputFactories = {}
+  const missingFactoryHandler = field => field
+
+  return renderForm(state, schema, inputFactories, missingFactoryHandler)
+}
+
+export { activeFields, renderForm }
