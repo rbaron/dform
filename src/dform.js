@@ -52,4 +52,34 @@ const activeFields = (state, schema) => {
   return renderForm(state, schema, inputFactories, missingFactoryHandler)
 }
 
-export { activeFields, renderForm }
+const defaultState = (schema, keyExtractor) => {
+  const getDefault = field => {
+    switch (field.type) {
+      case 'boolean':
+        return field.default || false
+      case 'string':
+        return field.default || ''
+      default:
+        return field.default
+    }
+  }
+
+  const traverse = (schema) => {
+    const state = schema.fields.reduce((acc, f) => {
+      return { ...acc, [keyExtractor(f)]: getDefault(f) }
+    }, {})
+
+    if (!schema.children) {
+      return state
+    } else {
+      return schema.children.reduce((acc, child) => ({
+        ...acc,
+        ...traverse(child),
+      }), state)
+    }
+  }
+
+  return traverse(schema)
+}
+
+export { activeFields, defaultState, renderForm }

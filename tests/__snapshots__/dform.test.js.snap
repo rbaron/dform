@@ -6,7 +6,7 @@ Array [
   "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_112\\"}>",
   "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_211\\"}>",
   "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_212\\"}>",
-  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_311\\"}>",
+  "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_311\\",\\"default\\":\\"field_311 default value\\"}>",
   "<BooleanInput {\\"type\\":\\"boolean\\",\\"id\\":\\"field_221\\"}>",
   "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_222\\"}>",
   "<StringInput {\\"type\\":\\"string\\",\\"id\\":\\"field_321\\"}>",

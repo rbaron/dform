@@ -1,4 +1,4 @@
-import { activeFields, renderForm } from '../src/dform'
+import { activeFields, defaultState, renderForm } from '../src/dform'
 
 const schema = {
   // height 1 node 1
@@ -36,6 +36,7 @@ const schema = {
       fields: [{
         type: 'string',
         id: 'field_311',
+        default: 'field_311 default value',
       }],
       cond: {
         type: 'always_true',
@@ -153,7 +154,7 @@ describe('activeKeys', () => {
     expect(fieldSet).toEqual(expected)
   })
 
-  it.only('returns expected fields', () => {
+  it('returns expected fields', () => {
     const state = {
       field_111: 'Some content',
       field_112: false,
@@ -170,5 +171,22 @@ describe('activeKeys', () => {
       'field_321',
     ])
     expect(fieldSet).toEqual(expected)
+  })
+})
+
+describe('defaultState', () => {
+  it('returns expected state', () => {
+    const state = defaultState(schema, f => f.id)
+    const expected = {
+      'field_111': '',
+      'field_112': false,
+      'field_211': false,
+      'field_212': '',
+      'field_311': 'field_311 default value',
+      'field_221': false,
+      'field_222': '',
+      'field_321': '',
+    }
+    expect(state).toEqual(expected)
   })
 })
