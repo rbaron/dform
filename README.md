@@ -1,11 +1,26 @@
-# dform
+# dform - JSON Schema based dynamic forms.
 
-Schema-based dynamic forms.
+dform is a set of libraries for managing dynamic forms. The dynamic forms are described through a JSON schema. Client libraries -- targeting, for example, the web or mobile environments -- read a dform JSON schema and render the forms accordingly.
 
-# Install
+This repository hosts the "core" logic, purely in javascript, that is the base onto which platform-specific libraries can be implemented. This library simply determines "when" each input should be rendered in a form, given a schema. The "how" is left for the client libraries to implement. This makes it easy for a schema to have the same behavior in different platforms (web and mobile, for instance).
+
+For examples of client libraries, which rely on this one, check out:
+
+* [react-dform](https://github.com/rbaron/react-dform) - React (web)
+* [react-native-dform](https://github.com/rbaron/react-native-dform) - React Native
+
+In order to aid the creation of dform JSON schemas, which can be tricky for big/complex dynamic forms, there is also the [dform-editor](https://github.com/rbaron/dform-editor) repository that hosts a web-based dform schema editor.
+
+# Installation
 
 ```sh
   $ npm install --save dform
+```
+
+or
+
+```sh
+$ yarn add dform
 ```
 
 # Example
@@ -45,7 +60,8 @@ const schema = {
       }],
     }],
 }
-
+// This should be customized by the implementing client library.
+// Here we just have dummy inputs, which are really just strings.
 const inputFactories = {
     'boolean': args => `<BooleanInput id=${args.id}>`,
     'string': args => `<StringInput id=${args.id}>`,
